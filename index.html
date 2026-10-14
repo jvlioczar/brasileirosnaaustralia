@@ -260,6 +260,11 @@ input.search::placeholder{color:var(--ink2);font-weight:400}
 .board td.f{text-align:right;font-variant-numeric:tabular-nums}
 .board th.f{text-align:right}
 .agb{display:inline-block;font:600 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:4px;white-space:nowrap}
+.agf{padding:12px 16px;border-bottom:1px solid var(--board-line);display:flex;flex-wrap:wrap;gap:8px}
+.agf .chip{background:transparent;color:var(--board-fg);border-color:var(--board-line);border-radius:999px}
+.agf .chip .n{color:var(--board-dim)}
+.agf .chip[aria-pressed="true"]{background:var(--board-fg);color:var(--board);border-color:var(--board-fg)}
+.agf .chip[aria-pressed="true"] .n{color:var(--board)}
 .agm{display:none}
 @media (max-width:760px){.board .st{display:none}.agm{display:block;margin-top:5px}}
 .agb.b1{color:var(--board-fg);border:1px solid var(--board-fg)}
@@ -612,6 +617,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         <h3 data-i18n="k22">PARTIDAS · BRASIL → AUSTRÁLIA</h3>
         <input class="search" id="q-agencies" type="search" placeholder="Buscar agência" aria-label="Buscar agência" data-ph-en="Search agencies" data-aria-en="Search agencies">
       </div>
+      <div class="agf chips" id="f-ag" role="group" aria-label="Filtrar agências" data-aria-en="Filter agencies"></div>
       <div class="boardscroll"><table>
         <thead><tr><th data-i18n="k23">Voo</th><th data-i18n="k24">Agência</th><th>Instagram</th><th class="st" data-i18n="kstat">Status</th></tr></thead>
         <tbody id="agencies"></tbody>
@@ -1382,7 +1388,7 @@ Casal Aussie|casalaussie|v|Brisbane`;
 /* Cidades: nome, código do aeroporto, longitude, latitude */
 const CITIES=[["Brisbane","BNE",153.03,-27.47],["Gold Coast","OOL",153.40,-28.02],["Sunshine Coast","MCY",153.07,-26.65],["Sydney","SYD",151.21,-33.87],["Melbourne","MEL",144.96,-37.81],["Perth","PER",115.86,-31.95],["Adelaide","ADL",138.60,-34.93],["Canberra","CBR",149.13,-35.28],["Hobart","HBA",147.33,-42.88],["Darwin","DRW",130.84,-12.46],["Cairns","CNS",145.77,-16.92],["Townsville","TSV",146.80,-19.26],["Broome","BME",122.2,-17.96],["Carnarvon","CVQ",113.66,-24.88],["Ocean Grove","AVV",144.52,-38.26],["Colac","AVV",143.58,-38.34],["Albury","ABX",146.92,-36.08],["Wodonga","ABX",146.89,-36.12],["Tasmânia","TAS",146.5,-42.0],["Interior","RGN",null,null],["Brasil","BRA",null,null]];
 
-const AGENCIES_RAW=`Egali|egali_intercambio|345|2
+const AGENCIES_RAW=`Egali|egali_baseaustralia|345|2
 Central de Intercâmbio (CI)|ci|283|0
 Student Travel Bureau (STB)|stb_brasil|200|2
 EF Education First|efbrasil|191|0
@@ -1655,10 +1661,16 @@ function renderCreators(){
 
 /* ================= AGÊNCIAS ================= */
 const badge=b=>b===2?`<span class="agb b2">✈︎✈︎ ${L("Escritório na AU","Office in AU")}</span>`:b===1?`<span class="agb b1">✈︎ ${L("Foco na AU","AU focus")}</span>`:"";
+let agF="todas";
+function renderAgChips(){
+  const o=[["todas",L("Todas","All"),agencies.length],["1",L("Foco na Austrália","Australia focus"),agencies.filter(a=>a.b===1).length],["2",L("Escritório na Austrália","Office in Australia"),agencies.filter(a=>a.b===2).length]];
+  $("f-ag").innerHTML=o.map(([v,l,n])=>`<button class="chip" data-ag="${v}" aria-pressed="${agF===v}">${v==="todas"?"":`<span aria-hidden="true">${v==="2"?"✈︎✈︎":"✈︎"}</span>`}${l}<span class="n">${n}</span></button>`).join("");
+}
+$("f-ag").addEventListener("click",e=>{const b=e.target.closest("[data-ag]");if(!b)return;agF=b.dataset.ag;renderAgChips();renderAgencies($("q-agencies").value.trim())});
 function renderAgencies(q=""){
   const nq=norm(q);
-  const list=[...agencies].sort((a,b)=>a.name.localeCompare(b.name,"pt")).map((a,i)=>({...a,rank:i+1})).filter(a=>!nq||norm(a.name+" "+a.handle).includes(nq));
-  $("agencies").innerHTML=list.length?list.map(a=>`<tr><td class="r">BR${String(a.rank).padStart(3,"0")}</td><td>${esc(a.name)}${a.b?`<span class="agm">${badge(a.b)}</span>`:""}</td><td><a href="${ig(a.handle)}" target="_blank" rel="noopener">@${esc(a.handle)}</a></td><td class="st">${badge(a.b)}</td></tr>`).join(""):`<tr><td colspan="4" style="color:var(--board-dim)">${L("NENHUMA AGÊNCIA COM ESSE NOME","NO AGENCY BY THAT NAME")}</td></tr>`;
+  const list=[...agencies].sort((a,b)=>a.name.localeCompare(b.name,"pt")).map((a,i)=>({...a,rank:i+1})).filter(a=>(agF==="todas"||a.b===+agF)&&(!nq||norm(a.name+" "+a.handle).includes(nq)));
+  $("agencies").innerHTML=list.length?list.map(a=>`<tr><td class="r">BR${String(a.rank).padStart(3,"0")}</td><td>${esc(a.name)}${a.b?`<span class="agm">${badge(a.b)}</span>`:""}</td><td><a href="${ig(a.handle)}" target="_blank" rel="noopener">@${esc(a.handle)}</a></td><td class="st">${badge(a.b)}</td></tr>`).join(""):`<tr><td colspan="4" style="color:var(--board-dim)">${L("NENHUMA AGÊNCIA COM ESSE FILTRO","NO AGENCY MATCHES THAT FILTER")}</td></tr>`;
   $("agencies-count").textContent=`${list.length} ${list.length===1?L("agência","agency"):L("agências","agencies")}`;
 }
 $("q-agencies").addEventListener("input",e=>renderAgencies(e.target.value.trim()));
@@ -1834,7 +1846,7 @@ tabs.forEach(t=>t.addEventListener("click",()=>{menu(false);show(t.dataset.tab,t
 $("brand").addEventListener("click",()=>{show("criadores",false);window.scrollTo({top:0,behavior:"smooth"})});
 window.addEventListener("hashchange",()=>show(location.hash.slice(1),true));
 
-function renderAll(){applyStatic();renderCityChips();renderTypeChips();renderWhoChips();renderCreators();renderAgencies($("q-agencies").value.trim());renderApps($("q-apps").value.trim());renderQuiz();renderCities();renderRent();renderProfiles();renderReels();renderDict();renderFacts();$("toggle-all").textContent=L("Abrir todas as etapas","Open all steps");$("n-apps").textContent=nApps;$("n-perfis").textContent=PROFILES.reduce((s,c)=>s+c[1].length,0)}
+function renderAll(){applyStatic();renderCityChips();renderTypeChips();renderWhoChips();renderCreators();renderAgChips();renderAgencies($("q-agencies").value.trim());renderApps($("q-apps").value.trim());renderQuiz();renderCities();renderRent();renderProfiles();renderReels();renderDict();renderFacts();$("toggle-all").textContent=L("Abrir todas as etapas","Open all steps");$("n-apps").textContent=nApps;$("n-perfis").textContent=PROFILES.reduce((s,c)=>s+c[1].length,0)}
 document.querySelector(".lang").addEventListener("click",e=>{const b=e.target.closest("[data-lang]");if(!b||b.dataset.lang===LANG)return;LANG=b.dataset.lang;renderAll()});
 if(new URLSearchParams(location.search).get("lang")==="en")LANG="en";
 renderAll();
