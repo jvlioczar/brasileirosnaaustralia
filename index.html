@@ -934,6 +934,40 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
    cidade vazia = a confirmar. Use exatamente o nome da lista CITIES abaixo. */
 const TYPES={d:"Dicas de intercâmbio",t:"Trabalho",h:"Humor",v:"Fotos e vlogs",p:"Perfil pessoal"};
 const CREATORS_RAW=`Julio Cesar Prava|gdayjulio|dhv|Brisbane
+Aurilene Siqueira|aurisiqueira|p|Brisbane
+Mariana Gabriela|marianagabrielamg|p|Brisbane
+Jéssica Silva|_jessicasilvabeauty_|t|Brisbane
+Laura Curzel|curzel_|p|Sydney
+Robert Moreira|robertmoreiraaa|p|Colac
+Maria Laura|mlaura.vito|p|Sydney
+Vinicius Paixão|vinipx33|p|Brisbane
+Anderson Pedro|andersonpedr|p|Melbourne
+Alex Santos|alex_ssantos_|p|
+Camila de Moraes|moraes.cami|p|
+Malu Carnevali|moonlu00c|p|
+Nataly Rocha|nataly.mr|p|Brisbane
+Myere Maia|myeremaia|p|
+Gio Oliveira|voagio|t|
+Mara Cruz|bymara_cruz|p|Melbourne
+Tássia e Victor|lost.somewhere.vlog|v|
+Kellen Berkembrock|kberkembrock|p|
+Dahi Kaminski|dahi_kaminski|p|
+Kemilyn Bianca|kemilynbianca|p|
+Victor Araujo|2victor|p|
+Lorenna Christina|lorennachristna|p|Sydney
+Caroline Groom|carollgroom|p|
+Giovanna Rodrigues|giiharodrigues|p|Sydney
+Amanda Cantinelli Paiva|acantinelli|p|
+Elisa Pimenta|elisapimenta|p|Gold Coast
+Rafaela Carvalho|rafacarvalhoa|p|Sydney
+Sabrina Stelita|sastelita|p|
+Inês Mendes|piniimendes|p|
+Leila Azevedo|nazevedoleila|p|
+Jacky Laranjeira|jackylaranjeira|p|
+Kherem Carvalho|kheremcarvalho|p|Sydney
+Madu Medeiros|_medeirosmadu|p|
+Sabrina P|sabrinapelegr|p|Sydney
+Ingrid Oliveira|ingrid.orc|p|
 Michele Vieira|mivieiraac|p|
 Brisa|brisadjj|p|Gold Coast
 Katt|cestkatt|p|Gold Coast
@@ -1098,18 +1132,18 @@ Beatriz Cepeda e Thiago Noro|sonhandoeviajando|dv|Brisbane
 Dany e Lucas|ocasalnagringa|dv|Gold Coast
 Beatriz Bastos|_biabastos|dhv|Gold Coast
 Rodrigo|fazerasmalas|dv|Gold Coast
-Scheylla|scheyllap|v|Gold Coast
+Scheylla Pinheiro|scheyllap|v|Gold Coast
 Gabriela Lima|gabrielalimaeu|dt|Sydney
 Gregório|euvoucomgreg|dv|Sydney
 Paolla Machado|paollarmm|d|Sydney
 Steph|canalaustralia|dv|Sydney
 Daniel Ferreira Barbosa|canguruber|tv|Sydney
 Erika Wilson|erikanaaustralia|hv|Sydney
-Isabelli Marino|isabelli.marino|v|Sydney
+Isabelli Marino|isabelli.marino|v|Gold Coast
 Diego e Edgar|aqui.na.australia|dt|Perth
 Débora Compri|allstraliaparatodos|dv|Perth
 Bruno Massarenti|brunos.massa|dt|Perth
-Bru Karine|brunaksc|dv|Melbourne
+Bruna Karine|brunaksc|dv|Melbourne
 Bruna Costa|bucacosta|dh|Gold Coast
 Caroline Maruzi|carolinemaruzi|dv|Sunshine Coast
 Igor Fraga|boraviajaraus|d|
@@ -1118,7 +1152,7 @@ Liane Peixoto|lianepeixoto|d|
 Lu|meninadear|d|Sydney
 Magali Molinari|magalimolinari_|d|Wodonga
 Michelle Helou|amichellehelou|dt|Melbourne
-My First Job Australia|myfirstjobaustralia|dt|
+My First Job Australia|myfirstjobaustralia|dt|Melbourne
 Priscila Werneck|oiaustralia|d|Adelaide
 Raul Engel|raul_engel|t|Gold Coast
 Thainan Brito|thainanb|tv|Sydney
@@ -1162,7 +1196,7 @@ Isabela Côrtes|cortes_isabela|p|
 Laísa Durães|laisa_duraess|p|
 Rodrigo e Jessica Boni|afamiliaboni|p|Sunshine Coast
 Diandra Brandalise|diandrabrandalise|p|Gold Coast
-Giovana Piunti|giipiunti1|p|
+Giovana Piunti|giipiunti1|p|Brasil
 Guilherme|bolotagui|p|
 Larissa Maxine|larissamaxine|p|
 Milena Vieira|milenasjm|p|
@@ -1266,7 +1300,7 @@ Ligia Calmon|ligiacalmon|dt|
 Thiago Borrelli|thiagoborrelli|t|
 Rafa Bonsfield|goldvibes.au|d|Gold Coast
 Leleco Mentalizei|lelecomentalizei|dv|
-Mari Vasconcelos|maribvascon|p|Sunshine Coast
+Mari Vasconcelos|maribvascon|d|Sunshine Coast
 Brenda|passaportedabren|v|Brisbane
 Gabriela Barreto|gabinsbarreto|v|Gold Coast
 Nicole Hernandez|niihhernandez|p|Gold Coast
@@ -1338,7 +1372,7 @@ Fernanda de Barros|ferbarros.aqui|t|Sydney
 Casal Aussie|casalaussie|v|Brisbane`;
 
 /* Cidades: nome, código do aeroporto, longitude, latitude */
-const CITIES=[["Brisbane","BNE",153.03,-27.47],["Gold Coast","OOL",153.40,-28.02],["Sunshine Coast","MCY",153.07,-26.65],["Sydney","SYD",151.21,-33.87],["Melbourne","MEL",144.96,-37.81],["Perth","PER",115.86,-31.95],["Adelaide","ADL",138.60,-34.93],["Canberra","CBR",149.13,-35.28],["Hobart","HBA",147.33,-42.88],["Darwin","DRW",130.84,-12.46],["Cairns","CNS",145.77,-16.92],["Townsville","TSV",146.80,-19.26],["Broome","BME",122.2,-17.96],["Carnarvon","CVQ",113.66,-24.88],["Ocean Grove","AVV",144.52,-38.26],["Albury","ABX",146.92,-36.08],["Wodonga","ABX",146.89,-36.12],["Tasmânia","TAS",146.5,-42.0],["Interior","RGN",null,null],["Brasil","BRA",null,null]];
+const CITIES=[["Brisbane","BNE",153.03,-27.47],["Gold Coast","OOL",153.40,-28.02],["Sunshine Coast","MCY",153.07,-26.65],["Sydney","SYD",151.21,-33.87],["Melbourne","MEL",144.96,-37.81],["Perth","PER",115.86,-31.95],["Adelaide","ADL",138.60,-34.93],["Canberra","CBR",149.13,-35.28],["Hobart","HBA",147.33,-42.88],["Darwin","DRW",130.84,-12.46],["Cairns","CNS",145.77,-16.92],["Townsville","TSV",146.80,-19.26],["Broome","BME",122.2,-17.96],["Carnarvon","CVQ",113.66,-24.88],["Ocean Grove","AVV",144.52,-38.26],["Colac","AVV",143.58,-38.34],["Albury","ABX",146.92,-36.08],["Wodonga","ABX",146.89,-36.12],["Tasmânia","TAS",146.5,-42.0],["Interior","RGN",null,null],["Brasil","BRA",null,null]];
 
 const AGENCIES_RAW=`Egali|egali_intercambio|345|2
 Central de Intercâmbio (CI)|ci|283|0
@@ -1388,7 +1422,7 @@ Yázigi Travel|yazigitravel|7|0
 One Way|oneway.intercambio|6.8|1
 Grow Up|growupintercambios|6.3|0
 GX|viajecomagx|6.2|0
-360 Degree|360degree.agency|5.7|0
+360 Degree Agency|360degree.agency|5.7|1
 Destino Certo|destinocertointercambios|5|0
 Connection Flow|cf_intercambios|4.8|1
 International Schools|internationalschools|4.6|0
@@ -1693,7 +1727,7 @@ renderRent();
 renderQuiz();renderCities();
 
 /* ================= PERFIS SOBRE A AUSTRÁLIA ================= */
-const PROFILES=[["Oficiais e governo", [["Australia", "australia"], ["Australian Government", "ausgov"], ["Embaixada da Austrália no Brasil", "australianobrasil"], ["Embassy of Brazil in Australia", "brazilinaus"], ["Study Australia", "studyauofficial"], ["Study Australia Brazil", "studyauofficial_brazil"], ["Services Australia", "services.australia"], ["Fair Work", "fairworkgovau"], ["Department of Health", "healthgovau"], ["Australian Bureau of Statistics", "absstats"], ["Australia Day", "australiaday"], ["Australian of the Year", "australianoftheyear"], ["Australian Public Service", "auspublicservice"], ["Indigenous", "indigenous_gov"], ["Insider Guides", "insiderguidesau"], ["Wikimedia Australia", "wikimediaau"], ["BRACCA Australia", "bracca_australia"]]], ["Cultura, museus e natureza", [["Australian Geographic", "australiangeographic"], ["Australian Museum", "australianmuseum"], ["National Museum of Australia", "nationalmuseumofaustralia"], ["National Gallery of Australia", "nationalgalleryaus"], ["Australian War Memorial", "awmemorial"], ["National Archives of Australia", "naagovau"], ["National Film & Sound Archive", "nfsaonline"], ["Australian Science Innovations", "auscienceinnovations"], ["Australia Zoo", "australiazoo"], ["Taronga Zoo", "tarongazoo"], ["Gourmet Traveller", "gourmettraveller"], ["Time Out Australia", "timeoutaustralia"]]], ["Para brasileiros", [["SBS Portuguese", "sbs_portuguese"], ["Brazil Week", "brazilweekau"], ["ABRISA Melbourne", "abrisabrazilianassociation"], ["Brazilian Film Festival", "brazilianfilmfestival.au"], ["Brazilian Association SA", "brazilianassociationsa"], ["Brazilian Community WA", "braziliancommunitywa"], ["Papo Calcinha Austrália", "papocalcinhaaus"]]], ["Fotografia e lifestyle", [["Andreas Kindblom", "viewfinderandy"], ["Ashleigh Bridget", "ashleighbridget"], ["Brinkley Davies", "brinkleydavies"], ["Elise Cook", "elisecook"], ["Emma Hyde", "emmaphotoaus"], ["Fiona Sheppard", "photogra_fi"], ["Jarrad Seng", "jarradseng"], ["Jesse Lindemann", "photobohemian"], ["Johnny Gaskell", "johnny_gaskell"], ["Keiran Lusk", "keiranlusk"], ["Kyle Hunter e Hayley Anderson", "haylsa"], ["Lauren Bath", "laurenepbath"], ["Mark Fitz", "_markfitz"], ["Pauly Vella", "paulyvella"], ["Phil Warring", "phlipvids"], ["Reuben Nutt", "reubennutt"], ["Sean Scott", "seanscottphotography"], ["Shane-Lee Botha", "graingaze"], ["Sid Hewison", "sids.ventures"], ["Tom Forrest", "outbacktom"], ["Tracy Olive", "tracyolive"], ["TikTok Australia", "tiktok_australia"]]], ["Inglês australiano", [["Amanda Boyce", "aussie.english.with.amanda"], ["Aussie Slang Gang", "aussie.slang.gang"], ["Candice Moll", "australianaccenttips"], ["Canguro English", "canguroenglish"], ["Emily", "esldownunder"], ["Emma Jakobi", "mmmenglish_emma"], ["Glen Speering", "australiansteachenglish"], ["Hugo Groom", "hugo.groom"], ["Jem", "aussiewithjem"], ["Lauren", "laurenglish.official"], ["Matthew McGuire", "realmattmcguire"], ["Max", "englishwithmax"], ["Monty Franklin", "montyfranklin"], ["Pete Smissen", "aussieenglish_"], ["Your Aussie Teacher", "youraussieteacherg"]]], ["Política e ativismo", [["Anthony Albanese", "albomp"], ["Georgie Purcell", "georgie.purcell.ajp"], ["Grace Tame", "tamepunk"], ["Konrad Benjamin", "punterspolitics"], ["Joey Carbstrong", "joey_carbstrong"], ["Lidia Thorpe", "senatorthorpe"], ["Peter Singer", "peter__singer"]]], ["Notícias e mídia", [["ABC News", "abcnews_au"], ["ABC Indigenous", "abcindigenous"], ["ABC iview", "abciview"], ["SBS Australia", "sbs_australia"], ["SBS News", "sbsnews_au"], ["Guardian Australia", "guardianaustralia"], ["The Sydney Morning Herald", "sydneymorningherald"], ["The Australian", "the.australian"], ["The Daily Aus", "thedailyaus"], ["The New Daily", "thenewdaily"], ["news.com.au", "newscomauhq"], ["nine.com.au", "ninecomau"], ["Mumbrella", "mumbrella_aus"], ["7NEWS Australia", "7newsaustralia"], ["9News", "9news"], ["10 News First", "10newsfirst"], ["Netflix Austrália e NZ", "netflixanz"]]], ["Esportes", [["AFL", "afl"], ["AFL Women's", "aflwomens"], ["NRL", "nrl"], ["Wallabies", "wallabies"], ["cricket.com.au", "cricketcomau"], ["Australian Open", "australianopen"], ["Football Australia", "footballaus"], ["Socceroos", "socceroos"], ["Matildas", "matildas"], ["Australian Olympic Team", "ausolympicteam"], ["Paralympics Australia", "ausparalympics"], ["Commonwealth Games Australia", "commgamesaus"], ["Athletics Australia", "athleticsaustralia"], ["Australian Sports Commission", "asc"], ["ABC Sport", "abc_sport"], ["Fox Sports Australia", "foxsportsaus"], ["The Sporting News Australia", "sportingnewsau"], ["SPORTbible Australia", "sportbibleaustralia"], ["ESL Australia", "eslaustralia"], ["Twitch ANZ", "twitch_anz"]]], ["New South Wales", [["Visit NSW", "visitnsw"], ["Sydney", "sydney"], ["City of Sydney", "cityofsydney"], ["Sydney Opera House", "sydneyoperahouse"], ["ABC Sydney", "abcinsydney"], ["7NEWS Sydney", "7newssyd"], ["9News Sydney", "9newssydney"], ["City of Newcastle", "citynewcastle.au"], ["Wollongong", "visitwollongong"], ["City of Wollongong", "wollongongcity"], ["Central Coast Council", "centralcoastcouncil"], ["Love Central Coast", "lovecentralcoastnsw"], ["Lake Macquarie", "ourlakemac"], ["Port Macquarie", "portmacquarie"], ["Wagga Wagga", "visitwaggawagga"], ["Jervis Bay Tourism", "jervisbaytourism"]]], ["Victoria", [["Visit Melbourne", "visitmelbourne"], ["City of Melbourne", "cityofmelbourne"], ["What's On Melbourne", "whatsonmelb"], ["ABC Melbourne", "abcinmelbourne"], ["7NEWS Melbourne", "7newsmelbourne"], ["9News Melbourne", "9newsmelbourne"], ["10 News First Melbourne", "10newsfirstmelb"], ["Geelong e Bellarine", "visitgeelongbellarine"], ["Visit Ballarat", "visitballarat"], ["City of Ballarat", "cityofballarat"], ["Explore Bendigo", "explorebendigo"]]], ["Queensland", [["Queensland", "queensland"], ["Queensland Government", "qldgov"], ["Visit Brisbane", "visitbrisbane"], ["Brisbane City", "brisbanecity"], ["Brisbane City Council", "brisbanecitycouncil"], ["ABC Brisbane", "abcbrisbane"], ["Experience Gold Coast", "experiencegoldcoast"], ["City of Gold Coast", "cityofgoldcoast"], ["Visit Sunshine Coast", "visitsunshinecoast"], ["Sunshine Coast", "sunshinecoast"], ["Visit Noosa", "visitnoosa"], ["Cairns Tourism", "cairnstourism"], ["Tropical North Queensland", "tropicalnorthqueensland"], ["Townsville", "townsvillenorthqueensland"], ["Toowoomba Region", "toowoombaregion"], ["The Whitsundays", "whitsundaysqld"], ["Visit Mackay Isaac", "visitmackayisaac"], ["Bundaberg Region", "visitbundaberg"], ["Gladstone Region", "gladstoneregion"], ["Outback Queensland", "outbackqueensland"], ["Queensland Country", "qld_country"], ["Great Barrier Reef Marine Park", "gbrmarinepark"], ["7NEWS Queensland", "7newsqueensland"], ["9News Queensland", "9newsqueensland"], ["10 Queensland", "10queensland"], ["7NEWS Gold Coast", "7newsgc"], ["9News Gold Coast", "9newsgoldcoast"], ["7NEWS North Queensland", "7newsnq"]]], ["Western Australia", [["Western Australia", "westernaustralia"], ["WA Government", "wagovernment"], ["Amazing WA", "amazing_wa"], ["City of Perth", "cityofperth"], ["Perth is OK!", "perthisok"], ["ABC Perth", "abcperth"], ["7NEWS Perth", "7newsperth"], ["9News Perth", "9newsperth"], ["10 Perth", "10perth"], ["Golden Outback", "australiasgoldenoutback"], ["Visit Mandurah", "visitmandurah"], ["City of Rockingham", "cityofrockingham"], ["Bunbury", "cityofbunbury"], ["Kalgoorlie-Boulder", "cityofkalgoorlieboulder"]]], ["South Australia", [["South Australia", "southaustralia"], ["City of Adelaide", "cityofadelaide"], ["ABC Adelaide", "abcadelaide"], ["7NEWS Adelaide", "7newsadelaide"], ["9News Adelaide", "9newsadelaide"], ["10 Adelaide", "10adelaide"], ["Visit Mount Gambier", "visitmountgambier"], ["Town of Gawler", "townofgawler"]]], ["Tasmânia", [["Tasmania", "tasmania"], ["Brand Tasmania", "brandtasmania"], ["City of Hobart", "cityofhobarttas"], ["ABC Hobart", "abchobart"], ["East Coast Tasmania", "eastcoasttasmania"], ["Visit Northern Tasmania", "visitnortherntasmania"], ["Launceston Central", "launcestoncentral"]]], ["Território do Norte", [["Northern Territory", "ntaustralia"], ["City of Darwin", "city_of_darwin"], ["ABC Darwin", "abcdarwin"], ["9News Darwin", "9newsdarwin"], ["Explore Uluru", "exploreuluru"], ["Visit Central Australia", "visitcentralaus"], ["Alice Springs", "alicespringstowncouncil"]]], ["Canberra (ACT)", [["Visit Canberra", "visitcanberra"], ["WeAreCBR", "wearecbr"], ["National Capital Authority", "nca_gov_au"], ["ABC Canberra", "abccanberra"]]]];
+const PROFILES=[["Oficiais e governo", [["Australia", "australia"], ["Australian Government", "ausgov"], ["Embaixada da Austrália no Brasil", "australianobrasil"], ["Embassy of Brazil in Australia", "brazilinaus"], ["Study Australia", "studyauofficial"], ["Study Australia Brazil", "studyauofficial_brazil"], ["Services Australia", "services.australia"], ["Fair Work", "fairworkgovau"], ["Department of Health", "healthgovau"], ["Australian Bureau of Statistics", "absstats"], ["Australia Day", "australiaday"], ["Australian of the Year", "australianoftheyear"], ["Australian Public Service", "auspublicservice"], ["Indigenous", "indigenous_gov"], ["Insider Guides", "insiderguidesau"], ["Wikimedia Australia", "wikimediaau"], ["BRACCA Australia", "bracca_australia"]]], ["Cultura, museus e natureza", [["Australian Geographic", "australiangeographic"], ["Australian Museum", "australianmuseum"], ["National Museum of Australia", "nationalmuseumofaustralia"], ["National Gallery of Australia", "nationalgalleryaus"], ["Australian War Memorial", "awmemorial"], ["National Archives of Australia", "naagovau"], ["National Film & Sound Archive", "nfsaonline"], ["Australian Science Innovations", "auscienceinnovations"], ["Australia Zoo", "australiazoo"], ["Taronga Zoo", "tarongazoo"], ["Gourmet Traveller", "gourmettraveller"], ["Time Out Australia", "timeoutaustralia"]]], ["Para brasileiros", [["SBS Portuguese", "sbs_portuguese"], ["Brazil Week", "brazilweekau"], ["ABRISA Melbourne", "abrisabrazilianassociation"], ["Brazilian Film Festival", "brazilianfilmfestival.au"], ["Brazilian Association SA", "brazilianassociationsa"], ["Brazilian Community WA", "braziliancommunitywa"], ["Papo Calcinha Austrália", "papocalcinhaaus"]]], ["Fotografia e lifestyle", [["Andreas Kindblom", "viewfinderandy"], ["Ashleigh Bridget", "ashleighbridget"], ["Brinkley Davies", "brinkleydavies"], ["Elise Cook", "elisecook"], ["Emma Hyde", "emmaphotoaus"], ["Fiona Sheppard", "photogra_fi"], ["Jarrad Seng", "jarradseng"], ["Jesse Lindemann", "photobohemian"], ["Johnny Gaskell", "johnny_gaskell"], ["Keiran Lusk", "keiranlusk"], ["Kyle Hunter e Hayley Anderson", "haylsa"], ["Lauren Bath", "laurenepbath"], ["Mark Fitz", "_markfitz"], ["Pauly Vella", "paulyvella"], ["Phil Warring", "phlipvids"], ["Reuben Nutt", "reubennutt"], ["Sean Scott", "seanscottphotography"], ["Shane-Lee Botha", "graingaze"], ["Sid Hewison", "sids.ventures"], ["Tom Forrest", "outbacktom"], ["Tracy Olive", "tracyolive"], ["TikTok Australia", "tiktok_australia"]]], ["Inglês australiano", [["Amanda Boyce", "aussie.english.with.amanda"], ["Aussie Slang Gang", "aussie.slang.gang"], ["Candice Moll", "australianaccenttips"], ["Canguro English", "canguroenglish"], ["Emily", "esldownunder"], ["Emma Jakobi", "mmmenglish_emma"], ["Glen Speering", "australiansteachenglish"], ["Hugo Groom", "hugo.groom"], ["Jem", "aussiewithjem"], ["Lauren", "laurenglish.official"], ["Matthew McGuire", "realmattmcguire"], ["Max", "englishwithmax"], ["Monty Franklin", "montyfranklin"], ["Pete Smissen", "aussieenglish_"], ["Your Aussie Teacher", "youraussieteacherg"]]], ["Política e ativismo", [["Anthony Albanese", "albomp"], ["Georgie Purcell", "georgie.purcell.ajp"], ["Grace Tame", "tamepunk"], ["Konrad Benjamin", "punterspolitics"], ["Joey Carbstrong", "joey_carbstrong"], ["Lidia Thorpe", "senatorthorpe"], ["Peter Singer", "peter__singer"], ["David Pocock", "davidpocock"]]], ["Notícias e mídia", [["ABC News", "abcnews_au"], ["ABC Indigenous", "abcindigenous"], ["ABC iview", "abciview"], ["SBS Australia", "sbs_australia"], ["SBS News", "sbsnews_au"], ["Guardian Australia", "guardianaustralia"], ["The Sydney Morning Herald", "sydneymorningherald"], ["The Australian", "the.australian"], ["The Daily Aus", "thedailyaus"], ["The New Daily", "thenewdaily"], ["news.com.au", "newscomauhq"], ["nine.com.au", "ninecomau"], ["Mumbrella", "mumbrella_aus"], ["7NEWS Australia", "7newsaustralia"], ["9News", "9news"], ["10 News First", "10newsfirst"], ["Netflix Austrália e NZ", "netflixanz"]]], ["Esportes", [["AFL", "afl"], ["AFL Women's", "aflwomens"], ["NRL", "nrl"], ["Wallabies", "wallabies"], ["cricket.com.au", "cricketcomau"], ["Australian Open", "australianopen"], ["Football Australia", "footballaus"], ["Socceroos", "socceroos"], ["Matildas", "matildas"], ["Australian Olympic Team", "ausolympicteam"], ["Paralympics Australia", "ausparalympics"], ["Commonwealth Games Australia", "commgamesaus"], ["Athletics Australia", "athleticsaustralia"], ["Australian Sports Commission", "asc"], ["ABC Sport", "abc_sport"], ["Fox Sports Australia", "foxsportsaus"], ["The Sporting News Australia", "sportingnewsau"], ["SPORTbible Australia", "sportbibleaustralia"], ["ESL Australia", "eslaustralia"], ["Twitch ANZ", "twitch_anz"]]], ["New South Wales", [["Visit NSW", "visitnsw"], ["Sydney", "sydney"], ["City of Sydney", "cityofsydney"], ["Sydney Opera House", "sydneyoperahouse"], ["ABC Sydney", "abcinsydney"], ["7NEWS Sydney", "7newssyd"], ["9News Sydney", "9newssydney"], ["City of Newcastle", "citynewcastle.au"], ["Wollongong", "visitwollongong"], ["City of Wollongong", "wollongongcity"], ["Central Coast Council", "centralcoastcouncil"], ["Love Central Coast", "lovecentralcoastnsw"], ["Lake Macquarie", "ourlakemac"], ["Port Macquarie", "portmacquarie"], ["Wagga Wagga", "visitwaggawagga"], ["Jervis Bay Tourism", "jervisbaytourism"]]], ["Victoria", [["Visit Melbourne", "visitmelbourne"], ["City of Melbourne", "cityofmelbourne"], ["What's On Melbourne", "whatsonmelb"], ["ABC Melbourne", "abcinmelbourne"], ["7NEWS Melbourne", "7newsmelbourne"], ["9News Melbourne", "9newsmelbourne"], ["10 News First Melbourne", "10newsfirstmelb"], ["Geelong e Bellarine", "visitgeelongbellarine"], ["Visit Ballarat", "visitballarat"], ["City of Ballarat", "cityofballarat"], ["Explore Bendigo", "explorebendigo"]]], ["Queensland", [["Queensland", "queensland"], ["Queensland Government", "qldgov"], ["Visit Brisbane", "visitbrisbane"], ["Brisbane City", "brisbanecity"], ["Brisbane City Council", "brisbanecitycouncil"], ["ABC Brisbane", "abcbrisbane"], ["Experience Gold Coast", "experiencegoldcoast"], ["City of Gold Coast", "cityofgoldcoast"], ["Visit Sunshine Coast", "visitsunshinecoast"], ["Sunshine Coast", "sunshinecoast"], ["Visit Noosa", "visitnoosa"], ["Cairns Tourism", "cairnstourism"], ["Tropical North Queensland", "tropicalnorthqueensland"], ["Townsville", "townsvillenorthqueensland"], ["Toowoomba Region", "toowoombaregion"], ["The Whitsundays", "whitsundaysqld"], ["Visit Mackay Isaac", "visitmackayisaac"], ["Bundaberg Region", "visitbundaberg"], ["Gladstone Region", "gladstoneregion"], ["Outback Queensland", "outbackqueensland"], ["Queensland Country", "qld_country"], ["Great Barrier Reef Marine Park", "gbrmarinepark"], ["7NEWS Queensland", "7newsqueensland"], ["9News Queensland", "9newsqueensland"], ["10 Queensland", "10queensland"], ["7NEWS Gold Coast", "7newsgc"], ["9News Gold Coast", "9newsgoldcoast"], ["7NEWS North Queensland", "7newsnq"]]], ["Western Australia", [["Western Australia", "westernaustralia"], ["WA Government", "wagovernment"], ["Amazing WA", "amazing_wa"], ["City of Perth", "cityofperth"], ["Perth is OK!", "perthisok"], ["ABC Perth", "abcperth"], ["7NEWS Perth", "7newsperth"], ["9News Perth", "9newsperth"], ["10 Perth", "10perth"], ["Golden Outback", "australiasgoldenoutback"], ["Visit Mandurah", "visitmandurah"], ["City of Rockingham", "cityofrockingham"], ["Bunbury", "cityofbunbury"], ["Kalgoorlie-Boulder", "cityofkalgoorlieboulder"]]], ["South Australia", [["South Australia", "southaustralia"], ["City of Adelaide", "cityofadelaide"], ["ABC Adelaide", "abcadelaide"], ["7NEWS Adelaide", "7newsadelaide"], ["9News Adelaide", "9newsadelaide"], ["10 Adelaide", "10adelaide"], ["Visit Mount Gambier", "visitmountgambier"], ["Town of Gawler", "townofgawler"]]], ["Tasmânia", [["Tasmania", "tasmania"], ["Brand Tasmania", "brandtasmania"], ["City of Hobart", "cityofhobarttas"], ["ABC Hobart", "abchobart"], ["East Coast Tasmania", "eastcoasttasmania"], ["Visit Northern Tasmania", "visitnortherntasmania"], ["Launceston Central", "launcestoncentral"]]], ["Território do Norte", [["Northern Territory", "ntaustralia"], ["City of Darwin", "city_of_darwin"], ["ABC Darwin", "abcdarwin"], ["9News Darwin", "9newsdarwin"], ["Explore Uluru", "exploreuluru"], ["Visit Central Australia", "visitcentralaus"], ["Alice Springs", "alicespringstowncouncil"]]], ["Canberra (ACT)", [["Visit Canberra", "visitcanberra"], ["WeAreCBR", "wearecbr"], ["National Capital Authority", "nca_gov_au"], ["ABC Canberra", "abccanberra"]]]];
 const pst={cat:"todas",q:""};
 function renderProfiles(){
   const nq=norm(pst.q);
