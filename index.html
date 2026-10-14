@@ -1606,7 +1606,7 @@ function tick(){
 tick();setInterval(tick,30000);
 const withCity=creators.filter(c=>c.city).length;
 
-const st={city:"todas",types:new Set(["d"]),q:"",who:"todos"};
+const st={city:"todas",type:"todos",q:"",who:"todos"};
 function count(city){return creators.filter(c=>c.city===city).length}
 /* ================= FILTROS ================= */
 function renderCityChips(){
@@ -1614,7 +1614,7 @@ function renderCityChips(){
   $("f-city").innerHTML=opts.map(([v,l,n])=>`<button class="chip" data-city="${esc(v)}" aria-pressed="${st.city===v}">${esc(l)}<span class="n">${n}</span></button>`).join("");
 }
 function renderTypeChips(){
-  $("f-type").innerHTML=Object.entries(TYPES).map(([k,l])=>`<button class="chip t-${k}" data-type="${k}" aria-pressed="${st.types.has(k)}"><span class="sw" style="background:var(--t-${k})"></span>${tT(k)}<span class="n">${creators.filter(c=>c.types.includes(k)).length}</span></button>`).join("");
+  $("f-type").innerHTML=`<button class="chip" data-type="todos" aria-pressed="${st.type==="todos"}">${L("Todos","All")}<span class="n">${creators.length}</span></button>`+Object.entries(TYPES).map(([k,l])=>`<button class="chip t-${k}" data-type="${k}" aria-pressed="${st.type===k}"><span class="sw" style="background:var(--t-${k})"></span>${tT(k)}<span class="n">${creators.filter(c=>c.types.includes(k)).length}</span></button>`).join("");
 }
 function renderWhoChips(){
   const opts=[["todos",L("Todos","Everyone"),creators.length],["br",L("Brasileiros","Brazilians"),creators.filter(c=>!c.au).length],["au",L("Australianos","Australians"),creators.filter(c=>c.au).length],["casal",L("Casal","Couples"),creators.filter(c=>c.casal).length]];
@@ -1623,21 +1623,21 @@ function renderWhoChips(){
 $("f-who").addEventListener("click",e=>{const b=e.target.closest("[data-who]");if(!b)return;st.who=b.dataset.who;renderWhoChips();renderCreators()});
 function setCity(c){st.city=c;renderCityChips();renderCreators()}
 $("f-city").addEventListener("click",e=>{const b=e.target.closest("[data-city]");if(b)setCity(b.dataset.city)});
-$("f-type").addEventListener("click",e=>{const b=e.target.closest("[data-type]");if(!b)return;const k=b.dataset.type;st.types.has(k)?st.types.delete(k):st.types.add(k);renderTypeChips();renderCreators()});
+$("f-type").addEventListener("click",e=>{const b=e.target.closest("[data-type]");if(!b)return;st.type=b.dataset.type;renderTypeChips();renderCreators()});
 $("q-creators").addEventListener("input",e=>{st.q=norm(e.target.value.trim());renderCreators()});
-$("clear-creators").addEventListener("click",()=>{st.types.clear();st.q="";st.who="todos";renderWhoChips();$("q-creators").value="";renderTypeChips();setCity("todas")});
+$("clear-creators").addEventListener("click",()=>{st.type="todos";st.q="";st.who="todos";renderWhoChips();$("q-creators").value="";renderTypeChips();setCity("todas")});
 
 function renderCreators(){
   const list=creators.filter(c=>{
     if(st.city==="pendente"&&c.city)return false;
     if(st.city!=="todas"&&st.city!=="pendente"&&c.city!==st.city)return false;
-    if(st.types.size&&![...st.types].some(t=>c.types.includes(t)))return false;
+    if(st.type!=="todos"&&!c.types.includes(st.type))return false;
     if(st.who==="br"&&c.au)return false;
     if(st.who==="au"&&!c.au)return false;
     if(st.who==="casal"&&!c.casal)return false;
     if(st.q&&!norm(c.name+" "+c.handle).includes(st.q))return false;
     return true});
-  const active=st.city!=="todas"||st.types.size||st.q||st.who!=="todos";
+  const active=st.city!=="todas"||st.type!=="todos"||st.q||st.who!=="todos";
   $("clear-creators").hidden=!active;
   $("creators-count").textContent=`${String(list.length).padStart(3,"0")} ${list.length===1?L("bilhete","ticket"):L("bilhetes","tickets")} · ${withCity} ${L("com cidade confirmada","with a confirmed city")}`;
   if(!list.length){$("creators").innerHTML=`<div class="empty">${L("Ninguém com essa combinação ainda. Escolha outra cidade ou tire um filtro.","No one matches that combination yet. Pick another city or remove a filter.")}</div>`;return}
