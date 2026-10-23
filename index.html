@@ -1697,14 +1697,14 @@ const st={city:"todas",type:"todos",q:"",who:"todos"};
 function count(city){return creators.filter(c=>c.city===city).length}
 /* ================= FILTROS ================= */
 function renderCityChips(){
-  const opts=[["todas",L("Todas","All"),creators.length],...CITIES.filter(c=>count(c[0])).map(c=>[c[0],tC(c[0]),count(c[0])]).sort((a,b)=>a[1].localeCompare(b[1],"pt")),["pendente",L("Indefinido","TBC"),creators.filter(c=>!c.city).length]];
+  const opts=[["todas",L("Todas","All"),creators.length],...CITIES.filter(c=>count(c[0])).map(c=>[c[0],tC(c[0]),count(c[0])]).sort((a,b)=>b[2]-a[2]||a[1].localeCompare(b[1],"pt")),["pendente",L("Indefinido","TBC"),creators.filter(c=>!c.city).length]];
   $("f-city").innerHTML=opts.map(([v,l,n])=>`<button class="chip" data-city="${esc(v)}" aria-pressed="${st.city===v}">${esc(l)}<span class="n">${n}</span></button>`).join("");
 }
 function renderTypeChips(){
-  $("f-type").innerHTML=`<button class="chip" data-type="todos" aria-pressed="${st.type==="todos"}">${L("Todos","All")}<span class="n">${creators.length}</span></button>`+Object.entries(TYPES).map(([k,l])=>`<button class="chip t-${k}" data-type="${k}" aria-pressed="${st.type===k}"><span class="sw" style="background:var(--t-${k})"></span>${tT(k)}<span class="n">${creators.filter(c=>c.types.includes(k)).length}</span></button>`).join("");
+  $("f-type").innerHTML=`<button class="chip" data-type="todos" aria-pressed="${st.type==="todos"}">${L("Todos","All")}<span class="n">${creators.length}</span></button>`+Object.entries(TYPES).map(([k])=>[k,creators.filter(c=>c.types.includes(k)).length]).sort((a,b)=>(a[0]==="p")-(b[0]==="p")||b[1]-a[1]).map(([k,n])=>`<button class="chip t-${k}" data-type="${k}" aria-pressed="${st.type===k}"><span class="sw" style="background:var(--t-${k})"></span>${tT(k)}<span class="n">${n}</span></button>`).join("");
 }
 function renderWhoChips(){
-  const opts=[["todos",L("Todos","Everyone"),creators.length],["br",L("Brasileiros","Brazilians"),creators.filter(c=>!c.au).length],["au",L("Australianos","Australians"),creators.filter(c=>c.au).length],["casal",L("Casal","Couples"),creators.filter(c=>c.casal).length]];
+  const opts=[["todos",L("Todos","Everyone"),creators.length],...[["br",L("Brasileiros","Brazilians"),creators.filter(c=>!c.au).length],["au",L("Australianos","Australians"),creators.filter(c=>c.au).length]].sort((a,b)=>b[2]-a[2]),["casal",L("Casal","Couples"),creators.filter(c=>c.casal).length]];
   $("f-who").innerHTML=opts.map(([v,l,n])=>`<button class="chip${v==="au"?" w-au":""}" data-who="${v}" aria-pressed="${st.who===v}">${v==="au"?'<span class="sw" style="background:var(--yellow)"></span>':""}${l}<span class="n">${n}</span></button>`).join("");
 }
 $("f-who").addEventListener("click",e=>{const b=e.target.closest("[data-who]");if(!b)return;st.who=b.dataset.who;renderWhoChips();renderCreators()});
