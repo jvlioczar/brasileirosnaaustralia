@@ -49,7 +49,7 @@
   --yellow:#fab400; --yellow-ink:#003c3c; --green:#008c78; --green-ink:#ffffff; --red:#008c78;
   --land:#e3f1ee; --land-edge:#003c3c; --star:transparent;
   --board:#003c3c; --board-fg:#fab400; --board-dim:#8fbdb6; --board-line:#0b5252;
-  --t-d:#008c78; --t-t:#003c3c; --t-h:#a87800; --t-v:#b5521b; --t-p:#5f7a77;
+  --t-d:#008c78; --t-t:#003c3c; --t-h:#a87800; --t-v:#b5521b; --t-i:#5b4bb7; --t-p:#5f7a77;
   --display:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;
   --body:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -60,13 +60,13 @@
   --yellow:#fab400; --yellow-ink:#003c3c; --green:#2cc4aa; --green-ink:#003c3c; --red:#2cc4aa;
   --land:#0b5555; --land-edge:#a9d0ca; --star:transparent;
   --board:#002828; --board-fg:#fab400; --board-dim:#7fb0a9; --board-line:#0b4a4a;
-  --t-d:#3fd1b8; --t-t:#d9f0ec; --t-h:#fab400; --t-v:#f08a57; --t-p:#b8cfcb; color-scheme:dark}}
+  --t-d:#3fd1b8; --t-t:#d9f0ec; --t-h:#fab400; --t-v:#f08a57; --t-i:#ada2f5; --t-p:#b8cfcb; color-scheme:dark}}
 :root[data-theme="dark"]{
   --paper:#003c3c; --card:#044747; --soft:#0b5555; --ink:#ffffff; --ink2:#a9d0ca; --line:#cfe8e4;
   --yellow:#fab400; --yellow-ink:#003c3c; --green:#2cc4aa; --green-ink:#003c3c; --red:#2cc4aa;
   --land:#0b5555; --land-edge:#a9d0ca; --star:transparent;
   --board:#002828; --board-fg:#fab400; --board-dim:#7fb0a9; --board-line:#0b4a4a;
-  --t-d:#3fd1b8; --t-t:#d9f0ec; --t-h:#fab400; --t-v:#f08a57; --t-p:#b8cfcb; color-scheme:dark}
+  --t-d:#3fd1b8; --t-t:#d9f0ec; --t-h:#fab400; --t-v:#f08a57; --t-i:#ada2f5; --t-p:#b8cfcb; color-scheme:dark}
 
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -172,6 +172,7 @@ main section{padding-block:40px 80px}
 .chip.t-t[aria-pressed="true"]{background:var(--t-t);border-color:var(--t-t);color:var(--paper)}
 .chip.t-h[aria-pressed="true"]{background:var(--t-h);border-color:var(--t-h);color:var(--paper)}
 .chip.t-v[aria-pressed="true"]{background:var(--t-v);border-color:var(--t-v);color:var(--paper)}
+.chip.t-i[aria-pressed="true"]{background:var(--t-i);border-color:var(--t-i);color:var(--paper)}
 .chip.t-p[aria-pressed="true"]{background:var(--t-p);border-color:var(--t-p);color:var(--paper)}
 .chip[class*="t-"][aria-pressed="true"] .n{color:var(--paper)}
 .sw{display:inline-block;width:10px;height:10px;border-radius:50%;align-self:center}
@@ -235,7 +236,7 @@ input.search::placeholder{color:var(--ink2);font-weight:400}
 .pass:hover .handle{color:var(--ink)}
 .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
 .tag{font-size:11px;font-weight:700;padding:0 6px;border:1.5px solid currentColor}
-.tag.d{color:var(--t-d)} .tag.t{color:var(--t-t)} .tag.h{color:var(--t-h)} .tag.v{color:var(--t-v)} .tag.p{color:var(--t-p);border-style:dashed} .tag.au{color:var(--ink2);border-color:var(--line);font-weight:600}
+.tag.d{color:var(--t-d)} .tag.t{color:var(--t-t)} .tag.h{color:var(--t-h)} .tag.v{color:var(--t-v)} .tag.i{color:var(--t-i)} .tag.p{color:var(--t-p);border-style:dashed} .tag.au{color:var(--ink2);border-color:var(--line);font-weight:600}
 .chip.w-au[aria-pressed="true"]{background:var(--yellow);border-color:var(--yellow);color:var(--yellow-ink)} .chip.w-au[aria-pressed="true"] .n{color:var(--yellow-ink)}
 .stub{border-left:2px dashed var(--line);display:grid;align-content:center;justify-items:center;gap:2px;padding:8px 4px;position:relative}
 .stub::before,.stub::after{content:"";position:absolute;left:-9px;width:16px;height:16px;border-radius:50%;background:var(--paper);border:2px solid var(--line)}
@@ -946,9 +947,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 (function(){
 /* ================= DADOS =================
    Criadores: "Nome|perfil|tipos|cidade"
-   tipos: d = Dicas de intercâmbio · t = Trabalho · h = Humor · v = Fotos e vlogs
+   tipos: d = Dicas de intercâmbio · t = Trabalho · h = Humor · v = Fotos e vlogs · i = Professores de inglês · p = Perfil pessoal
    cidade vazia = a confirmar. Use exatamente o nome da lista CITIES abaixo. */
-const TYPES={d:"Dicas de intercâmbio",t:"Trabalho",h:"Humor",v:"Fotos e vlogs",p:"Perfil pessoal"};
+const TYPES={d:"Dicas de intercâmbio",t:"Trabalho",h:"Humor",v:"Fotos e vlogs",i:"Professores de inglês",p:"Perfil pessoal"};
 const CREATORS_RAW=`Julio Cesar Prava|gdayjulio|dhv|Brisbane
 Fernanda Roche|fernandaroche_|t|
 Juliana Ridieri|moveon.aus|t|
@@ -1356,6 +1357,7 @@ Pete Smissen|aussieenglish_|d|Ocean Grove|au
 Mandy Pentland|mamdymoo|p|Brisbane|au
 Hugo Groom|professoraustraliano|dh|Brasil|au
 Christo Simmons|christofit.au|p|Sydney|au
+Jessica Emmerson|fluent.futuros|ti||au
 Joyce Cezar|joyce.in.aus|d|Sydney
 Jackie|cadeajackie|dv|Adelaide
 Jana|myvisualroom|v|Sydney
@@ -1677,7 +1679,7 @@ const CITY_EN=[{"pop": "5.5m", "reg": "Major city", "pro": "The most jobs, the b
 const QUIZ_EN=[["Brazilian Cultural Centre","brazilianculturalcentre"],["Budget", ["Tight", "Moderate", "Comfortable"]], ["Weather", ["Warm all year", "Four seasons", "Cold", "Don't mind"]], ["City size", ["Big city", "Mid-sized", "Laid-back"]], ["Priority", ["Jobs", "Beach and nature", "Regional visa", "Brazilian community"]]];
 const REELS_EN=["Socceroos vs Brazil", "Is the Australian dream over?", "Living abroad changes you", "What's changing in Brisbane by 2032", "Everything to do when you arrive in Australia to study", "How Australia wastes migrants' talent", "The contrast of moving from São Paulo to Brisbane", "Fun facts about Australia", "The greatest Australian inventions", "A dictionary of Aussie terms and slang"];
 const CITYNAME_EN={"Tasmânia": "Tasmania", "Interior": "Regional", "Brasil": "Brazil"};
-const TYPES_EN={d:"Study abroad tips",t:"Work",h:"Humour",v:"Photos and vlogs",p:"Personal"};
+const TYPES_EN={d:"Study abroad tips",t:"Work",h:"Humour",v:"Photos and vlogs",i:"English teachers",p:"Personal"};
 let LANG="pt";
 const EN=()=>LANG==="en";
 const L=(pt,en)=>EN()?en:pt;
