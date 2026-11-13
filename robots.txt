@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://brasileirosnaaustralia.biblioverse.org/sitemap.xml
+# Resumo para modelos de linguagem: https://brasileirosnaaustralia.biblioverse.org/llms.txt
