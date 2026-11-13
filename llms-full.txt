@@ -797,6 +797,8 @@ Link: https://brasileirosnaaustralia.biblioverse.org/#apps
 #### Comunidade brasileira e consulado
 
 - [ABRISA](https://abrisa.org.au): Associação brasileira em Melbourne
+- [Bentevi](https://bentevi.com.au/): Mapa de negócios brasileiros
+- [Canguaru](https://canguaru.com.au/): Guia de comida, eventos e serviços brasileiros
 - [Consulado-Geral do Brasil em Sydney](https://www.gov.br/mre/pt-br/consulado-sydney): Passaporte, procurações e registros
 - [Cônsules honorários do Brasil](https://www.gov.br/mre/pt-br/consulado-sydney/quem_somos/consules-honorarias-1/consules-honorarias): Contatos em outras capitais
 - [e-consular Sydney](https://ec-sydney.itamaraty.gov.br/): Agendar serviços consulares
