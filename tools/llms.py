@@ -3,7 +3,8 @@
 #   llms-full.txt       todo o conteúdo em português, em Markdown
 #   llms-full-en.txt    todo o conteúdo em inglês
 #   JSON-LD             bloco entre <!-- seo:start --> e <!-- seo:end --> no index.html: WebSite, WebPage e as listas
-#                       (criadores, agências, apps, perfis, cidades, guia como HowTo, dicionário como DefinedTermSet)
+#                       (criadores, agências, apps, perfis, cidades, guia como HowTo, FAQ como FAQPage, dicionário como DefinedTermSet)
+#   Atualizado em       data visível no rodapé, entre <!-- upd:start --> e <!-- upd:end -->, e a chave kupd do I18N
 #   sitemap.xml         lastmod de hoje
 # Lê os dados rodando o index.html no Chrome sem janela, nas duas línguas. Rode de novo (python tools/llms.py)
 # sempre que mudar criadores, agências, apps, perfis, guia, cidades, fatos, dicionário ou vídeos.
@@ -14,6 +15,9 @@ BASE = 'https://brasileirosnaaustralia.biblioverse.org/'
 CHROME = r'C:\Program Files\Google\Chrome\Application\chrome.exe'
 INDEX = os.path.join(ROOT, 'index.html')
 TODAY = datetime.date.today().isoformat()
+PUBLISHED = '2026-10-14'  # primeira publicação no GitHub Pages
+MESES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
+MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 EXPORT = r'''
 window.__BNA=function(lang){LANG=lang;renderAll();return{
@@ -53,6 +57,8 @@ for(const lang of ["pt","en"]){
     h:[...x.querySelectorAll(".leg-body h4")].map(txt),body:md(x.querySelector(".leg-body"))}));
   d.join=[txt(document.querySelector("#criadores .join h3")),txt(document.querySelector("#criadores .join p"))];
   d.notice=txt(document.querySelector("#criadores .notice"));
+  d.faqh=txt(document.querySelector("#faq h3"));d.faqp=txt(document.querySelector("#faq .faq-note"));
+  d.faq=[...document.querySelectorAll("#faq details")].map(x=>[txt(x.querySelector("summary")),txt(x.querySelector("p"))]);
   d.about={label:txt(document.querySelector("#sobre .about-id .label")),name:txt(document.querySelector("#sobre .about-id h2")),
     role:txt(document.querySelector("#sobre .role")),body:[...document.querySelectorAll("#sobre .about-body > p:not(.label)")].map(txt)};
   out[lang]=d;
@@ -162,6 +168,10 @@ def full(d, lang):
     out += [sec('guia'), '']
     for i, g in enumerate(d['guide'], 1):
         out += [f"### {i}. {g['t']}", '', f"_{g['s']}_", '', g['body'], '']
+    # perguntas frequentes
+    out += [f"## {d['faqh']}", '', d['faqp'], '', f"Link: {anchor(lang, 'faq')}", '']
+    for q, a in d['faq']:
+        out += [f'### {q}', '', a, '']
     # dicionário
     out += [sec('dicionario'), '']
     out += [f'- **{t}**: {pt} ({en})' if lang == 'pt' else f'- **{t}**: {en}' for t, en, pt in d['dict']] + ['']
@@ -193,6 +203,7 @@ def index_md():
     for k in TAB_ORDER:
         if k == 'sobre' or k not in s: continue
         o.append(f"- [{s[k]['h']}]({anchor('pt', k)}): {s[k]['p']}" + (f' ({cnt[k]})' if cnt[k] else ''))
+    o += ['', f"## {p['faqh']}", '', f"{p['faqp']} Link: {anchor('pt', 'faq')}", ''] + [f'- **{q}** {a}' for q, a in p['faq']]
     o += ['', '## In English', '', f"- [Brazilians in Australia]({W['en']['url']}): {e['lede']}"]
     for k in TAB_ORDER:
         if k == 'sobre' or k not in e['sec']: continue
@@ -220,7 +231,8 @@ website = {'@type': 'WebSite', '@id': ID('website'), 'name': 'Brasileiros na Aus
            'url': BASE, 'inLanguage': ['pt-BR', 'en-AU'],
            'description': 'Diretório para brasileiros na Austrália: criadores de conteúdo por cidade, comparador das capitais com aluguel, agências de intercâmbio, apps essenciais e guia de chegada passo a passo.',
            'author': {'@type': 'Person', 'name': 'Julio Cesar Prava', 'url': 'https://www.instagram.com/gdayjulio/',
-                      'sameAs': ['https://www.instagram.com/gdayjulio/', 'https://www.tiktok.com/@gdayjulio']},
+                      'sameAs': ['https://www.instagram.com/gdayjulio/', 'https://www.tiktok.com/@gdayjulio',
+                                 'https://www.linkedin.com/in/juliocesarprava', 'https://www.behance.net/juliocesarprava']},
            'publisher': {'@type': 'Organization', 'name': 'BiblioVerse', 'url': 'https://biblioverse.org/'}}
 lists = []
 lists.append({'@type': 'ItemList', '@id': ID('criadores'), 'name': s['criadores']['h'], 'description': s['criadores']['p'],
@@ -251,12 +263,15 @@ lists.append({'@type': 'HowTo', '@id': ID('guia'), 'name': s['guia']['h'], 'desc
               'step': [{'@type': 'HowToStep', 'position': i, 'name': g['t'], 'text': g['s'],
                         'itemListElement': [{'@type': 'HowToDirection', 'text': h} for h in g['h']]}
                        for i, g in enumerate(p['guide'], 1)]})
+lists.append({'@type': 'FAQPage', '@id': ID('faq'), 'name': p['faqh'], 'description': p['faqp'], 'inLanguage': 'pt-BR',
+              'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in p['faq']]})
 lists.append({'@type': 'DefinedTermSet', '@id': ID('dicionario'), 'name': s['dicionario']['h'], 'description': s['dicionario']['p'],
               'hasDefinedTerm': [{'@type': 'DefinedTerm', 'name': t, 'description': f'{pt} ({en})'} for t, en, pt in p['dict']]})
 lists.append({'@type': 'ItemList', '@id': ID('reels'), 'name': s['reels']['h'], 'numberOfItems': len(p['reels']),
               'itemListElement': [{'@type': 'ListItem', 'position': i, 'name': t, 'url': u} for i, (t, u) in enumerate(p['reels'], 1)]})
 webpage = {'@type': 'WebPage', '@id': ID('webpage'), 'url': BASE, 'name': p['title'], 'description': website['description'],
-           'inLanguage': 'pt-BR', 'isPartOf': {'@id': ID('website')}, 'dateModified': TODAY,
+           'inLanguage': 'pt-BR', 'isPartOf': {'@id': ID('website')}, 'datePublished': PUBLISHED, 'dateModified': TODAY,
+           'author': website['author'], 'publisher': website['publisher'],
            'about': [{'@type': 'Country', 'name': 'Austrália', 'sameAs': 'https://www.wikidata.org/wiki/Q408'},
                      {'@type': 'Thing', 'name': 'Imigração brasileira na Austrália'}],
            'audience': {'@type': 'Audience', 'audienceType': 'Brasileiros que vivem ou querem viver na Austrália'},
@@ -269,6 +284,11 @@ block = ('<!-- seo:start -->\n<link rel="alternate" type="text/plain" href="/llm
 raw = open(INDEX, 'rb').read().decode('utf-8')
 nl = '\r\n' if '\r\n' in raw else '\n'
 src = raw.replace('\r\n', '\n')
+d_ = datetime.date.today()
+upd_pt = f'<span data-i18n="kupd">Atualizado em <time datetime="{TODAY}">{d_.day} de {MESES[d_.month - 1]} de {d_.year}</time></span>'
+upd_en = f'Updated <time datetime=\\"{TODAY}\\">{d_.day} {MONTHS[d_.month - 1]} {d_.year}</time>'
+src = re.sub(r'<!-- upd:start -->.*?<!-- upd:end -->', lambda m: f'<!-- upd:start -->{upd_pt}<!-- upd:end -->', src, flags=re.S)
+src = re.sub(r'"kupd": "(?:[^"\\]|\\.)*"', lambda m: f'"kupd": "{upd_en}"', src)  # aceita \" dentro do valor
 if '<!-- seo:start -->' in src:
     src = re.sub(r'<!-- seo:start -->.*?<!-- seo:end -->', lambda m: block, src, flags=re.S)
 else:

@@ -4,7 +4,7 @@
 
 Para conhecer melhor os dois países, além de explorar as outras seções deste site, visite os projetos [Cultura Australiana](https://australianculture.biblioverse.org/pt/) e [Cultura Brasileira](https://brazilianculture.biblioverse.org/pt/).
 
-Outra língua: [Full content in English](https://brasileirosnaaustralia.biblioverse.org/llms-full-en.txt). Informação geral. Não substitui agente de migração registrado (MARA), contador ou advogado.
+Outra língua: [Full content in English](https://brasileirosnaaustralia.biblioverse.org/llms-full-en.txt). Atualizado em 14 de novembro de 2026 Informação geral. Não substitui agente de migração registrado (MARA), contador ou advogado.
 
 ## Criadores
 
@@ -1588,6 +1588,52 @@ _Guarde no celular_
 - **131 450**: Intérprete grátis (TIS)
 - **1300 094 737**: Animal silvestre ferido (WIRES, 24h)
 - **132 500**: SES: enchentes e tempestades
+
+## Perguntas frequentes
+
+Respostas curtas com base no guia acima. Valores conferidos em outubro de 2026; regras mudam, confirme no site oficial.
+
+Link: https://brasileirosnaaustralia.biblioverse.org/#faq
+
+### Quanto custa o visto de estudante para a Austrália?
+
+Desde 1º de julho de 2026, a taxa base é A$ 2.050 para curso de inglês (ELICOS) e A$ 2.500 para graduação, pós e cursos técnicos. Além da taxa, o visto exige OSHC (seguro saúde) e comprovar o custo de vida.
+
+### Quantas horas um estudante pode trabalhar na Austrália?
+
+Até 48 horas por quinzena durante as aulas. Nas férias oficiais do curso não há limite.
+
+### Qual é o salário mínimo na Austrália?
+
+A$ 26,44 por hora desde 1º de julho de 2026. Trabalhadores casuais recebem 25% a mais (casual loading), e o empregador deposita 12% do salário na superannuation. Muitas funções têm piso maior pelo award.
+
+### Brasileiro pode fazer Work and Holiday na Austrália?
+
+Sim. O visto Work and Holiday (subclass 462) é para brasileiros de 18 a 30 anos, com até 500 vagas por ano, que reabrem em 2 de julho. Exige ensino superior completo ou pelo menos dois anos de faculdade, inglês funcional e dinheiro para se manter.
+
+### Quanto dinheiro preciso comprovar para o visto de estudante?
+
+A referência oficial é A$ 29.710 por ano de custo de vida, mais o primeiro ano do curso e a passagem. Cônjuge soma A$ 10.394 e cada filho, A$ 4.449. Ter o dinheiro é obrigatório; anexar extratos depende do nível de evidência da escola, e o Brasil está no nível 2 desde abril de 2025.
+
+### Preciso de seguro saúde na Austrália?
+
+Sim. O Brasil não tem acordo de reciprocidade com o Medicare. Estudantes precisam de OSHC durante todo o visto; outros vistos temporários normalmente pedem OVHC. Em emergência, ligue 000.
+
+### Qual é a melhor cidade da Austrália para brasileiros?
+
+Depende do que você busca. Sydney tem mais vagas e a maior comunidade brasileira, mas é a mais cara; Gold Coast tem o aluguel mais alto e uma das maiores comunidades; Melbourne e Adelaide estão entre as capitais mais baratas; Perth, Adelaide, Canberra, Gold Coast e Sunshine Coast, entre outras, contam como região designada para vistos. A aba Qual cidade? compara 12 cidades.
+
+### Posso dirigir na Austrália com a CNH brasileira?
+
+Com visto temporário, em geral sim, desde que a CNH esteja válida e em inglês ou com tradução oficial (ou acompanhada da Permissão Internacional para Dirigir). Regras e prazos variam por estado.
+
+### O que é o TFN e como consigo o meu?
+
+O Tax File Number é o seu número fiscal, necessário para trabalhar sem pagar o imposto máximo. É gratuito e você pede no site da ATO assim que chegar. Nunca pague um intermediário por isso.
+
+### Quantos brasileiros vivem na Austrália?
+
+Segundo o ABS, cerca de 74 mil moradores da Austrália nasceram no Brasil (junho de 2025), e o Censo de 2021 registrou quase 40 mil pessoas de ascendência brasileira.
 
 ## Dicionário de gírias
 
