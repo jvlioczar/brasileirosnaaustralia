@@ -2,7 +2,7 @@
 
 > A Austrália para brasileiros: quem cria conteúdo sobre viver na Austrália, as agências de intercâmbio, os apps do dia a dia e o passo a passo de quem está de mudança.
 
-Diretório gratuito e bilíngue (português do Brasil e inglês australiano) para brasileiros que vivem ou querem viver na Austrália, parte da BiblioVerse. É uma página única com abas: o português fica na raiz e o inglês em ?lang=en. As listas são montadas por JavaScript, por isso o conteúdo completo também está publicado em Markdown abaixo. Atualizado em 2026-11-14. Atualizado em 14 de novembro de 2026
+Diretório gratuito e bilíngue (português do Brasil e inglês australiano) para brasileiros que vivem ou querem viver na Austrália, parte da BiblioVerse. É uma página única com abas: o português fica na raiz e o inglês em ?lang=en. As listas são montadas por JavaScript, por isso o conteúdo completo também está publicado em Markdown abaixo. Atualizado em 2026-11-15. Atualizado em 14 de novembro de 2026
 
 ## Conteúdo completo
 
@@ -11,7 +11,7 @@ Diretório gratuito e bilíngue (português do Brasil e inglês australiano) par
 
 ## Seções
 
-- [Criadores](https://brasileirosnaaustralia.biblioverse.org/#criadores): Brasileiros que criam conteúdo sobre a vida na Austrália e, no filtro Australianos, alguns australianos de coração brasileiro. Filtre por cidade, tipo de conteúdo ou quem cria, lembrando que um mesmo criador pode aparecer em mais de um tipo. Toque no bilhete para abrir o perfil e encontre gente para se inspirar! (528 criadores)
+- [Criadores](https://brasileirosnaaustralia.biblioverse.org/#criadores): Brasileiros que criam conteúdo sobre a vida na Austrália e, no filtro Australianos, alguns australianos de coração brasileiro. Filtre por cidade, tipo de conteúdo ou quem cria, lembrando que um mesmo criador pode aparecer em mais de um tipo. Toque no bilhete para abrir o perfil e encontre gente para se inspirar! (532 criadores)
 - [Agências](https://brasileirosnaaustralia.biblioverse.org/#agencias): Agências com foco em Austrália, em ordem alfabética. Antes de fechar, compare preços, peça referências e confirme que a escola está no CRICOS. (75 agências)
 - [Apps e perfis](https://brasileirosnaaustralia.biblioverse.org/#apps): O kit de quem mora aqui: os apps e serviços que a comunidade usa no dia a dia e os perfis que ajudam a entender o país. (92 apps e serviços, 215 perfis)
 - [Fatos sobre a Austrália](https://brasileirosnaaustralia.biblioverse.org/#fatos): O essencial para conhecer o país antes de chegar: geografia, gente, governo, economia, natureza e esporte, com dados oficiais atualizados.
