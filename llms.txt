@@ -2,7 +2,7 @@
 
 > A Austrália para brasileiros: quem cria conteúdo sobre viver na Austrália, as agências de intercâmbio, os apps do dia a dia e o passo a passo de quem está de mudança.
 
-Diretório gratuito e bilíngue (português do Brasil e inglês australiano) para brasileiros que vivem ou querem viver na Austrália, parte da BiblioVerse. É uma página única com abas: o português fica na raiz e o inglês em ?lang=en. As listas são montadas por JavaScript, por isso o conteúdo completo também está publicado em Markdown abaixo. Atualizado em 2026-11-15. Atualizado em 14 de novembro de 2026
+Diretório gratuito e bilíngue (português do Brasil e inglês australiano) para brasileiros que vivem ou querem viver na Austrália, parte da BiblioVerse. É uma página única com abas: o português fica na raiz e o inglês em ?lang=en. As listas são montadas por JavaScript, por isso o conteúdo completo também está publicado em Markdown abaixo. Atualizado em 2026-11-15. Atualizado em 15 de novembro de 2026
 
 ## Conteúdo completo
 
